@@ -1,6 +1,6 @@
-         #Ejercicio Tema 1
+         # Ejercicio Tema 1
 
-     ##José Antonio Larrubia García.
+     ## José Antonio Larrubia García.
 
 Contenido más adecuado para los siguientes servidores web.
 
