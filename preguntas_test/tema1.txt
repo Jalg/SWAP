@@ -1,0 +1,8 @@
+<pregunta>
+  <enunciado>Si necesitamos replicar nuestro sistema o comprar máquinas nuevas ¿Qué problema estamos resolviendo?</enunciado>
+  <opcionA>Problema con la disponibilidad</opcionA>
+  <opcionB>Problema con la escalabilidad</opcionB>
+  <opcionC>Problema con la carga del sistema</opcionC>
+  <opcionD>Problemas de la arquitectura del sistema</opcionD>
+  <solucion>A</solucion>
+</pregunta>
