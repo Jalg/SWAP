@@ -1,0 +1,17 @@
+<pregunta>
+  <enunciado>Con tiempo de no-disponiblidad no programado nos referimos a:</enunciado>
+  <opcionA>El servidor no esta disponible por actualizaciones del sistema operativo.</opcionA>
+  <opcionB>El servidor no esta disponible por actualizaciones de aplicaciones.</opcionB>
+  <opcionC>El servidor no esta disponible por actualizaciones del hardware.</opcionC>
+  <opcionD>El servidor no esta disponible por cualquier causa no controlada</opcionD>
+  <solucion>D</solucion>
+</pregunta>
+
+<pregunta>
+  <enunciado> ¿Cual de las siguientes mejoras es la que tiene menos impacto en la escalabilidad de un sistema?</enunciado>
+  <opcionA> Optimización del hardware. </opcionA>
+  <opcionB> Optimización del producto. </opcionB>
+  <opcionC> Optimización del código. </opcionC>
+  <opcionD> Diseño. </opcionD>
+  <solucion> A </solucion>
+</pregunta>
