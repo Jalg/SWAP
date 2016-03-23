@@ -58,7 +58,7 @@ Para esto vamos a usar cron, lo único que tenemos que hacer editar el archivo e
 para establecer tareas en nuestro servidor, en nuestro caso lo que queremos es que se lance cada hora, por tanto 
 añadimos la siguiente línea:
 
-*0 * * * * root rsync -avz --delete -e ssh root@192.168.1.101:/var/www/ /var/www/*
+*0 * * * * root rsync -avz --delete -e ssh root@"ip_server":/var/www/ /var/www/*
 
 Quedaría el archivo en nuestro caso de la siguiente forma:
 
