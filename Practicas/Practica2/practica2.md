@@ -38,7 +38,7 @@ Hacemos lo siguiente:
 enter
 enter
 enter
-*ssh-copy-id -i ./ssh/id_dsa.pub root@"ip_server"*
+*ssh-copy-id -i .ssh/id_dsa.pub root@"ip_server"*
 
 Y probamos si no nos pide la contraseña.
 *ssh "ip_servidor" -l root* 
