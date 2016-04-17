@@ -1,0 +1,17 @@
+<pregunta>
+  <enunciado> A la zona segura que configuramos en una granja web para tener áreas restringidas y controladas la llamamos: </enunciado>
+  <opcionA> Zona restringida </opcionA>
+  <opcionB> Zona de aislamiento </opcionB>
+  <opcionC> Zona desmilitarizada o DMZ </opcionC>
+  <opcionD> DMC </opcionD>
+  <solucion> C </solucion>
+</pregunta>
+
+<pregunta>
+  <enunciado> ¿Cúal de los siguientes factores no aseguran la calidad del servicio y seguridad de una conexión a internet? </enunciado>
+  <opcionA> Calidad del servicio y ancho de banda. </opcionA>
+  <opcionB> Filtrado y bloqueo de paquetes. </opcionB>
+  <opcionC> Router especializado. </opcionC>
+  <opcionD> Network adderss translation(NAT). </opcionD>
+  <solucion> C </solucion>
+</pregunta>

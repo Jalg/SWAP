@@ -1,0 +1,17 @@
+<pregunta>
+  <enunciado> Cual de los siguientes no es una ventaja de una granja web con balanceo de carga:  </enunciado>
+  <opcionA> Mejora la escalabilidad. </opcionA>
+  <opcionB> Mejora la disponibilidad </opcionB>
+  <opcionC> Mejora la seguridad. </opcionC>
+  <opcionD> Mejora la simplicidad. </opcionD>
+  <solucion> D </solucion>
+</pregunta>
+
+<pregunta>
+  <enunciado> Cual de los siguientes no es un algoritmo de balanceo de carga: </enunciado>
+  <opcionA> Round-robin. </opcionA>
+  <opcionB> Combinación de round-robin,prioridad y tiempo de respuesta. </opcionB>
+  <opcionC> Balanceo basado en tiempo de respuesta. </opcionC>
+  <opcionD> Balanceo basado en prioridad.  </opcionD>
+  <solucion> B </solucion>
+</pregunta>
