@@ -3,7 +3,7 @@
 ## José Antonio Larrubia García
 ## Javier Quero Ruíz
 
-**1. Nginx.**
+### 1. Nginx.
 
 Lo primero que tenemos que hacer es instalar nginx, en nuestro caso con  *sudo apt-get install nginx* fue suficiente.
 
@@ -47,7 +47,7 @@ En la siguiente imagen observamos de cada 3 peticiones que llegan la máquina do
 
 Ya hemos realizado lo pedido con nginx, ahora lo haremos con haproxy.
 
-**2. Haproxy.**
+### 2. Haproxy.
 
 Lo primero que tenemos que hacer es matar nginx con la orden: *service nginx stop* en modo superusuario(root).
 
