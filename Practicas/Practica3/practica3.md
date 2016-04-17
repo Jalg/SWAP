@@ -1,69 +1,69 @@
-# Pr·ctica 3. Balanceo de Carga.
+# Pr√°ctica 3. Balanceo de Carga.
 
-## JosÈ Antonio Larrubia GarcÌa
-## Javier Quero RuÌz
+## Jos√© Antonio Larrubia Garc√≠a
+## Javier Quero Ru√≠z
 
-**1. Nginx. **
+**1. Nginx.**
 
 Lo primero que tenemos que hacer es instalar nginx, en nuestro caso con  *sudo apt-get install nginx* fue suficiente.
 
-Una vez instalado procedemos a realizar la configuraciÛn del mismo para que act˙e como balanceador de carga.
-Como la configuraciÛn inicial no nos sirve, ya que parte de un servidor web, tenemos que modificar el fichero
+Una vez instalado procedemos a realizar la configuraci√≥n del mismo para que act√∫e como balanceador de carga.
+Como la configuraci√≥n inicial no nos sirve, ya que parte de un servidor web, tenemos que modificar el fichero
 */etc/nginx/conf.d/default.conf* en nuestro caso el fichero no estaba pero al crearlo no hubo problemas en una
-m·quina con ubuntu server 12, en ubuntu server 14 no pudimos modificarlo como balanceador. No nos daba error al 
-reiniciar el servicio pero no nos balanceaba sÛlo mostraba el index de nginx. Encontramos que era en sites-availables
-haciendo un enlace simbÛlico hacia sites-enable pero al hacer esto daba error al reiniciar el servicio y no 
-estaba disponible el puerto 80, por tanto reinstalamos en una m·quina con ubuntu server 12 y no hubo problemas.
+m√°quina con ubuntu server 12, en ubuntu server 14 no pudimos modificarlo como balanceador. No nos daba error al 
+reiniciar el servicio pero no nos balanceaba s√≥lo mostraba el index de nginx. Encontramos que era en sites-availables
+haciendo un enlace simb√≥lico hacia sites-enable pero al hacer esto daba error al reiniciar el servicio y no 
+estaba disponible el puerto 80, por tanto reinstalamos en una m√°quina con ubuntu server 12 y no hubo problemas.
 
 En la siguiente imagen se puede ver como configuramos nuestro balanceador nginx:
 
 ![im1] (/Practicas/Practica3/Imagenes/im1.png)
 
-Esta configuraciÛn est· hecha antes de aÒadir el reparto de carga en el que la m·quina 1 maneja el doble de carga que la 
+Esta configuraci√≥n est√° hecha antes de a√±adir el reparto de carga en el que la m√°quina 1 maneja el doble de carga que la 
 dos.
 
-Una vez configurado y reiniciado el servicio nginx cambiamos los index de la m·quina 1 y 2 para que digan quien es cadda uno,
-para saber facilmente cual de las dos es la que est· sirviendo y asÌ saber si funciona correctamente.
+Una vez configurado y reiniciado el servicio nginx cambiamos los index de la m√°quina 1 y 2 para que digan quien es cadda uno,
+para saber facilmente cual de las dos es la que est√° sirviendo y as√≠ saber si funciona correctamente.
 
-Para probarlo hacemos un curl y vemos que nos da el index de cada p·gina por tanto funciona correctamente.
-En la siguiente imagen se puede ver un ejemplo de ejecuciÛn.
+Para probarlo hacemos un curl y vemos que nos da el index de cada p√°gina por tanto funciona correctamente.
+En la siguiente imagen se puede ver un ejemplo de ejecuci√≥n.
 
 ![im2] (/Practicas/Practica3/Imagenes/im2.png)
 
-A continuaciÛn ya si asignamos la carga de trabajo que manejar· cada una de las m·quinas, donde suponemos que la m·quina 1
-es el doble de potente, o tiene el doble de capacidad que la m·quina 2(aunque en nuestro caso sean iguales).
-En la siguiente imagen se ve como acabarÌa la configuraciÛn de nuevo del archivo */etc/nginx/conf.d/default.conf*
+A continuaci√≥n ya si asignamos la carga de trabajo que manejar√° cada una de las m√°quinas, donde suponemos que la m√°quina 1
+es el doble de potente, o tiene el doble de capacidad que la m√°quina 2(aunque en nuestro caso sean iguales).
+En la siguiente imagen se ve como acabar√≠a la configuraci√≥n de nuevo del archivo */etc/nginx/conf.d/default.conf*
 
 ![im3] (/Practicas/Practica3/Imagenes/im3.png)
 
-Procedemos a probar que realmente asigna el trabajo como debe, es decir la m·quina 1 sirve el doble de peticiones que la 
-la m·quina 2. Para comprobarlo desde otra m·quina a parte que serÌa la m·quina 4 llamar· a la m·quina que act˙a de balanceador
-con un curl como el siguiente *curl http://<ip del balanceador>* en nuestro caso quedarÌa de la siguiente forma:
+Procedemos a probar que realmente asigna el trabajo como debe, es decir la m√°quina 1 sirve el doble de peticiones que la 
+la m√°quina 2. Para comprobarlo desde otra m√°quina a parte que ser√≠a la m√°quina 4 llamar√° a la m√°quina que act√∫a de balanceador
+con un curl como el siguiente *curl http://<ip del balanceador>* en nuestro caso quedar√≠a de la siguiente forma:
 *curl http://192.168.1.105*. 
 
-En la siguiente imagen observamos de cada 3 peticiones que llegan la m·quina dos atiende solamente a una de ellas y la uno a dos.
+En la siguiente imagen observamos de cada 3 peticiones que llegan la m√°quina dos atiende solamente a una de ellas y la uno a dos.
 
 ![im4] (/Practicas/Practica3/Imagenes/im4.png)
 
 Ya hemos realizado lo pedido con nginx, ahora lo haremos con haproxy.
 
-**2. Haproxy. **
+**2. Haproxy.**
 
 Lo primero que tenemos que hacer es matar nginx con la orden: *service nginx stop* en modo superusuario(root).
 
 Una vez detenido el servicio de nginx procedemos a instalar haproxy, el orden de esto da igual lo importante es
-que cuando queramos usar haproxy nginx estÈ parado y haproxy iniciando, si no habr· un conflicto a la hora de 
-escuchar por el puerto 80. Para instalar haproxy usamos apt-get tambiÈn.
+que cuando queramos usar haproxy nginx est√© parado y haproxy iniciando, si no habr√° un conflicto a la hora de 
+escuchar por el puerto 80. Para instalar haproxy usamos apt-get tambi√©n.
 
-Una vez isntalado debemos modificar su archivo de configuraciÛn en este caso lo podemos encontrar en */etc/haproxy/haproxy.cfg*.
-En este caso ya hemos aÒadido que asigne la carga adecuadamente desde el principio.
+Una vez isntalado debemos modificar su archivo de configuraci√≥n en este caso lo podemos encontrar en */etc/haproxy/haproxy.cfg*.
+En este caso ya hemos a√±adido que asigne la carga adecuadamente desde el principio.
 
-En la siguiente imagen podemos ver como quedarÌa el fichero de configuraciÛn.
+En la siguiente imagen podemos ver como quedar√≠a el fichero de configuraci√≥n.
 
 ![im5] (/Practicas/Practica3/Imagenes/im5.png)
 
-Una vez tenemos el fichero de configuraciÛn modificado tenemos que lanzar haproxy, par ello usamos la siguiente orden:
-*/usr/sbin/haproxy -f /etc/haproxy/haproxy.cfg*. Y desde la m·quina 4 llamamos de nuevo al balanceador de la misma forma que hicimos
+Una vez tenemos el fichero de configuraci√≥n modificado tenemos que lanzar haproxy, par ello usamos la siguiente orden:
+*/usr/sbin/haproxy -f /etc/haproxy/haproxy.cfg*. Y desde la m√°quina 4 llamamos de nuevo al balanceador de la misma forma que hicimos
 con nginx para comprobar que lo hace correctamente. En la siguiente imagen puede verse un ejemplo de como funciona.
 
 ![im6] (/Practicas/Practica3/Imagenes/im6.png)
