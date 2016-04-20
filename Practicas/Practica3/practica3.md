@@ -17,7 +17,7 @@ estaba disponible el puerto 80, por tanto, reinstalamos en una máquina con ubunt
 
 En la siguiente imagen se puede ver como configuramos nuestro balanceador nginx:
 
-![im1] (/practicas/Practica3/imagenes/im1.png)
+![im1] (/Practicas/Practica3/imagenes/im1.png)
 
 Esta configuración está hecha antes de añadir el reparto de carga en el que la máquina 1 maneja el doble de carga que la 
 dos.
@@ -28,13 +28,13 @@ para saber facilmente cuál de las dos es la que está sirviendo y así saber si fu
 Para probarlo hacemos un curl y vemos que nos da el index de cada página, por tanto funciona correctamente.
 En la siguiente imagen se puede ver un ejemplo de ejecución.
 
-![im2] (/practicas/Practica3/imagenes/im2.png)
+![im2] (/Practicas/Practica3/imagenes/im2.png)
 
 A continuación ya si asignamos la carga de trabajo que manejará cada una de las máquinas, donde suponemos que la máquina 1
 es el doble de potente, o tiene el doble de capacidad que la máquina 2 (aunque en nuestro caso sean iguales).
 En la siguiente imagen se ve como hemos modificado el archivo */etc/nginx/conf.d/default.conf* para que lo haga como nos piden.
 
-![im3] (/practicas/Practica3/imagenes/im3.png)
+![im3] (/Practicas/Practica3/imagenes/im3.png)
 
 Procedemos a probar que realmente asigna el trabajo como debe, es decir, la máquina 1 sirve el doble de peticiones que la 
 la máquina 2. Para comprobarlo lo hacemos desde otra máquina, la máquina 4, que llamará a la máquina que actúa de balanceador
@@ -42,7 +42,7 @@ con un curl, en nuestro caso quedaría de la siguiente forma *curl http://192.168
 
 En la siguiente imagen observamos que de cada 3 peticiones que llegan la máquina 2 atiende solamente a una de ellas y la 1 atiende dos.
 
-![im4] (/practicas/Practica3/imagenes/im4.png)
+![im4] (/Practicas/Practica3/imagenes/im4.png)
 
 Ya hemos terminado con nginx, ahora lo haremos con haproxy.
 
@@ -59,13 +59,13 @@ Esta vez ya hemos añadido que asigne la carga adecuadamente desde el principio.
 
 En la siguiente imagen vemos como queda el fichero de configuración.
 
-![im5] (/practicas/Practica3/imagenes/im5.png)
+![im5] (/Practicas/Practica3/imagenes/im5.png)
 
 Una vez tenemos el fichero de configuración modificado, lanzamos haproxy. Para ello usamos la siguiente orden:
 */usr/sbin/haproxy -f /etc/haproxy/haproxy.cfg*. Y desde la máquina 4 llamamos de nuevo al balanceador de la misma forma que hicimos
 con nginx para comprobar que lo hace correctamente. En la siguiente imagen puede verse un ejemplo de como funciona.
 
-![im6] (/practicas/Practica3/imagenes/im6.png)
+![im6] (/Practicas/Practica3/imagenes/im6.png)
 
 Como se observa también funciona correctamente.
 
@@ -74,16 +74,16 @@ Como se observa también funciona correctamente.
 De nuevo instalamos pound como en las dos ocasiones anteriores y matamos nginx y haproxy si están activos.
 Editamos el archivo de configuración */etc/pound/pound.cfg* para que realice lo pedido en la práctica, también los pesos.
 
-![im7] (/practicas/Practica3/imagenes/im7.png) 
+![im7] (/Practicas/Practica3/imagenes/im7.png) 
 		
 Quedando como mostramos anteriormente. Después editamos el archivo */etc/default/pound* cambiando startup a 1 para poder arrancarlo.
 
-![im8] (/practicas/Practica3/imagenes/im8.png)
+![im8] (/Practicas/Practica3/imagenes/im8.png)
 		
 Para que inicie introducimos la orden */etc/init.d/pound start*.
 Y por último llamamos al balanceador desde la máquina 4 como hemos hecho con las otras dos configuraciones.
 
-![im9] (/practicas/Practica3/imagenes/im9.png)
+![im9] (/Practicas/Practica3/imagenes/im9.png)
 		
 Observamos en la imagen anterior que funciona como es debido. 
 		
