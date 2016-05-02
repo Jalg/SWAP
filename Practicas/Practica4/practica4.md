@@ -1,4 +1,4 @@
-# Práctica 3. Balanceo de Carga.
+# Práctica 4. Comprobar el rendimiento de servidores web.
 
 ## José Antonio Larrubia García
 ## Javier Quero Ruíz
@@ -219,7 +219,7 @@ rendimiento, así por tanto podremos poner a prueba a nuestro server con un bench
 sobre algo que estemos buscando. Es decir si queremos probar la transación más larga tenemos siege o si queremos ver las peticiones
 que sirve por segundo tenemos el apache o si quisieramos saber el tiempo de respuesta el httperf.
 
-Una buena forma de evaluar nuestro server y en este caso elegir balanceador según lo que estemos buscando.
+Una buena forma de evaluar el rendimiento nuestro server y en este caso elegir balanceador según lo que estemos buscando.
 
 
 
