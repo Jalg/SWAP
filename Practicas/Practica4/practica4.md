@@ -6,17 +6,17 @@
 ###1. Apache Benchmark.
 
 Lo primero que hay que hacer es crear la página web en formato html para que las pruebas que se hagan
-tengan suficiente carga para que los resultados sean representativos.
+tengan suficiente carga y así los resultados sean representativos.
 En nuestro caso hemos usado directamente el ejemplo que viene en el guión en */var/www* tanto en la 
 máquina 1 como en la máquina 2. Uno de los errores que cometimos inicialmente fue olvidarnos de poner 
-el html en la máquina 2 y por tanto la cantidad de fallos al acceder era enorme. Nos dimos cuenta en el 
-apartado de siege.
+el html en la máquina 2 y por tanto la cantidad de fallos al acceder era enorme. Posteriormente en el apartado de siege 
+nos dimos cuenta que los dos archivos de ambas máquinas no los habiamos creado totalmente iguales, por lo que también nos daban errores.
 En la siguiente imagen vemos el ejemplo usado: 
 
 ![im1] (/Practicas/Practica4/Imagenes/im1.png)
 
-Ahora vamos a mostrar una tabla con las medidas desde la máquina 4 a la 1, es decir directamente al servidor
-sin pasar por el balanceador, para ello lanzamos *Lanzamos ab -n 1000 -c 5 http://192.168.1.101/prueba.html*.
+Ahora vamos a mostrar una tabla con las medidas desde la máquina 4 a la 1, es decir, directamente al servidor
+sin pasar por el balanceador. Para ello lanzamos *lanzamos ab -n 1000 -c 5 http://192.168.1.101/prueba.html*.
 
 |M1         | Time taken per tests (s) | Failed requests | Requests per second |
 |:---------:|:------------------------:|:---------------:|:-------------------:|
@@ -50,7 +50,7 @@ En la siguiente imagen se puede ver la primera ejecución de ab.
 
 ![im3] (/Practicas/Practica4/Imagenes/im3.png)
 
-Las siguientes medidas son al igual que las anteriores desde la máquina 4 hacia la granja web en este caso usando haproxy
+Las siguientes medidas son al igual que las anteriores desde la máquina 4 hacia la granja web, en este caso usando haproxy
 como balanceador. La orden ab sigue siendo la misma que antes.
 
 |Haproxy    | Time taken per tests (s) | Failed requests | Requests per second |
@@ -62,7 +62,7 @@ como balanceador. La orden ab sigue siendo la misma que antes.
 |5          |0,528                     |0                |1892	               |
 |**Media**  |**0,5396**                |**0**            |**1852,2**           |
 
-De nuevo sólo con los datos de la tabla podemos ver como haproxy hace un mejor servicio que nginx de balanceador, nada raro
+De nuevo sólo con los datos de la tabla podemos ver como haproxy hace un mejor servicio de balanceador que nginx, nada raro
 considerando que nginx en un principio es software para servidor web y no como haproxy que si es un balanceador directamente.
 Aún así sigue siendo más rápido accediendo al servidor directamente.
 
@@ -79,22 +79,21 @@ Por último las medidas con pound como balanceador desde la máquina 4.
 |5          |1,033                     |0                |968	               |
 |**Media**  |**1,0414**                |**0**            |**960**              |
 
-Podemos decir que pound es de los 3 balanceadores usados en la práctica el más lento aún cuando es directamente un balanceador como
-lo es haproxy.
+Podemos decir que pound es de los tres balanceadores usados en la práctica el más lento.
 
-La siguiente imagen se ven las gráficas donde se venn comparadas las medias de time taken per tests y request per second de las tres
+En la siguiente imagen mostramos las gráficas donde se ven comparadas las medias de time, taken per tests y request per second de las tres
 tablas anteriores.
 
 ![gra1] (/Practicas/Practica4/Imagenes/gra1.png)
 
-En esta primera gráfica no hemos mostrado gailed request por ser siempre 0 en todas las mediciones.
+En esta primera gráfica no hemos mostrado failed request por ser siempre 0 en todas las mediciones.
 
 ###2. Siege.
 
 Lo primero es instalar siege con la orden *apt-get install siege*.
 Una vez instalado repetiremos las medidas que se han realizado con ab.
 
-Las primeras como antes serán desde la máquina 4 hacia la máquina 1 directamente, la orden usada de siege es 
+Las primeras como antes serán desde la máquina 4 hacia la máquina 1 directamente. La orden usada de siege es 
 *siege -b -t60s -v http://192.168.1.101/prueba.html*, en la siguiente imagen se ve una primera ejecución de siege.
 
 ![im4] (/Practicas/Practica4/Imagenes/im4.png)
@@ -110,7 +109,7 @@ Y ahora la tabla con las mediciones.
 |5          |100              |0,01              |0	                   |0,16                 |
 |**Media**  |**100**          |**0,01**          |**0**                |**0,128**            |
 
-Las siguientes mediciones son desde la máquina 4 hacia la granja web con nginx como balanceador, la orden de siege
+Las siguientes mediciones son desde la máquina 4 hacia la granja web con nginx como balanceador. La orden de siege
 por tanto queda de la siguiente forma *siege -b -t60s -v http://192.168.1.105/prueba.html*.
 
 |Nginx      | Availability(%) | Reponse time (s) | Failed transactions | Longest transaction |
@@ -122,7 +121,7 @@ por tanto queda de la siguiente forma *siege -b -t60s -v http://192.168.1.105/pr
 |5          |100              |0,01              |0	                   |0,05                 |
 |**Media**  |**100**          |**0,01**          |**0**                |**0,058**            |
 
-En este caso la única diferencia es en la transacción mas larga.
+En este caso la única diferencia es en la transacción más larga.
 
 Las siguientes son con haproxy como balanceador.
 
@@ -146,26 +145,25 @@ Y por último las medidas usando pound.
 |5          |100              |0,01              |0	                   |0,16                 |
 |**Media**  |**100**          |**0,01**          |**0**                |**0,134**            |
 
-Y la gráfica correspondiente a las diferencias entre las medias de las transacciones más largas de todos los casos,
-no hacemos otras gráficas ya que todas las otras medidas son idénticas.
+La gráfica solo corresponde a las diferencias entre las medias de las transacciones más largas de todos los casos ya que
+todas las otras medidas son idénticas.
 
 ![gra2] (/Practicas/Practica4/Imagenes/gra2.png)
 
 ###3. Httperf.
 
-Lo primero es instalarlo, podemos de nuevo hacerlo usando el repertorio de paquetes , en este caso la orden sería*apt-get
+De nuevo como las otras dos veces primeramente debemos instalarlo. Podemos de nuevo hacerlo usando el repertorio de paquetes, en este caso la orden sería
 *apt-get install httperf*.
 
-Para las primeras mediciones de httperf lo haremos desde la máquina 4 a la máquina 1 directamente, se usa la orden 
+Para las primeras mediciones de httperf lo haremos desde la máquina 4 a la máquina 1 directamente como anteriormente. Se usa la orden 
 *httperf --hog --server 192.168.1.101 http://192.168.1.101/prueba.html --port80 --num-conns 1000* donde se especifica el 
-server al que le haces la petición y donde esta el archivo el puerto donde debe mirar y el número de peticiones, en nuestro
+server al que le haces la petición y donde está el archivo, el puerto donde debe mirar y el número de peticiones. En nuestro
 caso hemos puesto 1000 ya que era lo que se usaba en apache benchmark.
-Para saber más de las opciones de httperf se pueden ver en *man httperf*.
 
 La siguiente imagen muestra un ejemplo de ejecución.
 ![im5] (/Practicas/Practica4/Imagenes/im5.png)
 
-A continuación en la tabla mostramos 5 medidas.
+A continuación en la tabla mostramos las cinco medidas.
 
 |M1         | Connection rate(conns/s)| Avg connection time(ms) | Reply time (ms) |
 |:---------:|:-----------------------:|:-----------------------:|:---------------:|
@@ -176,7 +174,7 @@ A continuación en la tabla mostramos 5 medidas.
 |5          |666,1                    |1,5                      |0,8              |
 |**Media**  |**683,46**               |**1,46**                 |**0,76**         |
 
-Ahora lo ejecutaremos desde la máquina 4 a la granja web con nginx como balanceador, la orden de httperf en este caso sería la siguiente
+Ahora lo ejecutaremos desde la máquina 4 a la granja web con nginx como balanceador. La orden de httperf en este caso sería la siguiente:
 *httperf --hog --server 192.168.1.105 http://192.168.1.105/prueba.html --port80 --num-conns 1000*
 
 |Nginx      | Connection rate(conns/s)| Avg connection time(ms) | Reply time (ms) |
@@ -215,9 +213,9 @@ En la siguiente imagen podemos ver las 3 gráficas comparando las medias de cada 
 ![gra3] (/Practicas/Practica4/Imagenes/gra3.png)
 
 Podemos por tanto decir que cada benchmark evalúa de forma distinta al servidor web dando distintos tipos de 
-rendimiento, así por tanto podremos poner a prueba a nuestro server con un benchmark donde se de información concreta
-sobre algo que estemos buscando. Es decir si queremos probar la transación más larga tenemos siege o si queremos ver las peticiones
-que sirve por segundo tenemos el apache o si quisieramos saber el tiempo de respuesta el httperf.
+rendimiento, así por tanto, podremos poner a prueba a nuestro server con un benchmark donde se de información concreta
+sobre algo que estemos buscando. Es decir, si queremos probar la transacción más larga tenemos siege, si por ejemplo queremos ver 
+las peticiones que sirve por segundo tenemos apache o si quisieramos saber el tiempo de respuesta httperf.
 
 Una buena forma de evaluar el rendimiento nuestro server y en este caso elegir balanceador según lo que estemos buscando.
 
