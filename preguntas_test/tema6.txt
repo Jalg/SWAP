@@ -1,0 +1,17 @@
+<pregunta>
+  <enunciado> ¿Cuál de los siguientes es el procedimiento de autenticación más efectivo? </enunciado>
+  <opcionA> Una clave o PIN. </opcionA>
+  <opcionB> Un escáner de retina, huella dactilar o ADN. </opcionB>
+  <opcionC> Todos son igual de seguros. </opcionC>
+  <opcionD> Una tarjeta física que incluirá la clave. </opcionD>
+  <solucion> B </solucion>
+</pregunta>
+
+<pregunta>
+  <enunciado> ¿Cuál de los siguientes no es un beneficio del cortafuegos? </enunciado>
+  <opcionA> Evita el consumo excesivo de recursos, reduciendo el tráfico global que un servidor recibirá. </opcionA>
+  <opcionB> Oculta los servidores finales a otras redes. </opcionB>
+  <opcionC> Protege los servidores de múltiples ataques. </opcionC>
+  <opcionD> Hace visible información de los servidores a otras redes. </opcionD>
+  <solucion> D </solucion>
+</pregunta>

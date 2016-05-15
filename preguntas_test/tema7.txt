@@ -1,0 +1,17 @@
+<pregunta>
+  <enunciado> ¿Cuál de las siguientes afirmaciones sobre una configuración RAID es falsa? </enunciado>
+  <opcionA> Ofrece mayor integridad, mayor tolerancia a fallos, mayor rendimiento y mayor capacidad. </opcionA>
+  <opcionB> Un RAID por hardware es mucho más rápido que uno configurado por software. </opcionB>
+  <opcionC> Un RAID por software son mucho más flexibles. </opcionC>
+  <opcionD> Un RAID por software no permite construir RAID de particiones en lugar de discos completos. </opcionD>
+  <solucion> D </solucion>
+</pregunta>
+
+<pregunta>
+  <enunciado> ¿Cuál de las siguientes afirmaciones sobre arrays de almacenamiento compartido, SSA, es falsa?  </enunciado>
+  <opcionA> La posibilidad de manejo y la flexibilidad de un SSA es ilimitada. </opcionA>
+  <opcionB> Posee una interfaz para conectar los discos a las controladoras. </opcionB>
+  <opcionC> Número limitado de puertos para hacer la conexión entre servidores y almacenamiento. </opcionC>
+  <opcionD> Se suele usar para disponer del almacenamiento necesario para archivos y BD en clusters. </opcionD>
+  <solucion> A </solucion>
+</pregunta>

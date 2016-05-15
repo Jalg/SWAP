@@ -1,0 +1,17 @@
+<pregunta>
+  <enunciado> ¿Cuál de los siguientes no es un elemento de una granja web?  </enunciado>
+  <opcionA> Servidores. </opcionA>
+  <opcionB> Almacenamiento. </opcionB>
+  <opcionC> Conexiones de red. </opcionC>
+  <opcionD> Pantallas de monitor. </opcionD>
+  <solucion> D </solucion>
+</pregunta>
+
+<pregunta>
+  <enunciado> ¿Cuál de los siguientes no es un software estrictamente necesario para configurar un servidor web de altas prestaciones? </enunciado>
+  <opcionA> NFS(Network File System). </opcionA>
+  <opcionB> Sistema operativo. </opcionB>
+  <opcionC> Cortafuegos. </opcionC>
+  <opcionD> Balanceadores de carga. </opcionD>
+  <solucion> A </solucion>
+</pregunta>

@@ -1,0 +1,17 @@
+<pregunta>
+  <enunciado> ¿Cuál es la medida más importante cuando hablamos del rendimiento de un servidor? </enunciado>
+  <opcionA> Número de conexiones concurrentes.  </opcionA>
+  <opcionB> Rendimiento, en bits por segundo. </opcionB>
+  <opcionC> Conexiones por segundo. </opcionC>
+  <opcionD> Número de peticiones completadas. </opcionD>
+  <solucion> C  </solucion>
+</pregunta>
+
+<pregunta>
+  <enunciado> ¿Cual de las siguientes no es un tipo de prueba en un benchmark? </enunciado>
+  <opcionA> Humo. </opcionA>
+  <opcionB> Capacitación. </opcionB>
+  <opcionC> Carga. </opcionC>
+  <opcionD> Estrés. </opcionD>
+  <solucion> B </solucion>
+</pregunta>
