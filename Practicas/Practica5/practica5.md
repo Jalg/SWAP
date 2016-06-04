@@ -11,7 +11,7 @@ Creamos los datos en la máquina 1.
 Usamos *mysql -uroot -p para entrar en MySQL*.
 Creamos la base de datos contactos como nos explican en el pdf (pon lo que quieras Jose, si quieres explicarlo paso a paso...).
 
-![imáquina 1] (/Practicas/Practica5/Imagenes/imáquina 1.png)
+![im1] (/Practicas/Practica5/Imagenes/im1.png)
 
 Ya tenemos creada la base de datos con datos insertados.
 
