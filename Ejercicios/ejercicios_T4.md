@@ -18,19 +18,33 @@ Para implementar la detección de la zona desde donde se conecta un usuario neces
 de aquí: http://chir.ag/projects/geoiploc/ y con un script que haga uso de ella podemos detectar de que país proviene esa dirección IP.
 
 <?php
+
 error_reporting(E_ALL & ~E_NOTICE);
+
 include("geoiploc.php"); 
+
   if (empty($_POST['checkip']))
+
   {
-        $ip = $_SERVER["REMOTE_ADDR"]; 
+
+	$ip = $_SERVER["REMOTE_ADDR"]; 
+
   }
+  
   else
+  
   {
+  
         $ip = $_POST['checkip']; 
+		
   }
-?> 
+  
+?>
+ 
 Tu dirección IP es: <?php echo($ip); ?> <br>
+
 Tu País es : <?php echo(getCountryFromIP($ip, " NamE"));?>
+
  (<?php echo(getCountryFromIP($ip, "code"));?>)
 
 **No lo he realizado yo, está sacado de la página web:** https://norfipc.com/codigos/como-saber-pais-corresponde-direccion-ip-internet.php

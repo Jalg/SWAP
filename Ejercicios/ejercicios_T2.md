@@ -5,7 +5,7 @@
 ###Ejercicio 1. Calcular la disponibilidad del sistema si tenemos dos réplicas de cada elemento (en total 3 elementos en cada subsistema). 
 
 	  
-Original			
+**Original**			
 
 **Web**			85%		
 **Application**	90%		
@@ -30,12 +30,19 @@ Original
 **Triplicado**
 
 **Web**			99,66%	
+
 **Application**	99,9%
+
 **Database**	99,9999999%
+
 **DNS** 		99,9992%
+
 **Firewall**	99,66%
+
 **Switch** 		99,9999%
+
 **Data Center** 99,99%
+
 **ISP** 		99,9875%
 
 La disponibilidad del sistema será: **99,198%**.
